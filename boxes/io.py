@@ -1,4 +1,4 @@
-from boxes.boxes import Box
+from boxes.box import Box
 
 
 def read_data(filename, container, boxes):

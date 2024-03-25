@@ -1,7 +1,7 @@
 import os
 import unittest
-from boxes.boxes import Box
-from boxes.read_data import read_data
+from boxes.box import Box
+from boxes.io import read_data
 from boxes.solution import find_solution, SolutionType
 
 

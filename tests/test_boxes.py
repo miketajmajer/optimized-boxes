@@ -1,5 +1,5 @@
 import unittest
-from boxes.boxes import Box, FitType
+from boxes.box import Box, FitType
 
 
 # Test Box Functions
