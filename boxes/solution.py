@@ -1,5 +1,7 @@
 from enum import Enum
-from boxes.box import Box, FitType
+
+from boxes.box import FitType
+
 
 class SolutionType(Enum):
     MOST_VOLUME = 0

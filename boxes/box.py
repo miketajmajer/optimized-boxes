@@ -9,7 +9,7 @@ class FitType(Enum):
 
 
 class Box:
-    name = ""
+    name = ''
     width = 0
     length = 0
     height = 0
@@ -21,6 +21,10 @@ class Box:
         self.length = length
         self.height = height
         self.volume = width * length * height
+
+
+    def __repr__(self):
+        return f"<Box name:{self.name} width:{self.width} length:{self.length} height:{self.height}>"
 
     # Rotate the box upwards CCW, making the width = height, and the height = width
     def rotate_up(self):
@@ -72,17 +76,17 @@ class Box:
         # make self match the box size, returning the extra
         if self.width > box.width:
             w = self.width - box.width
-            result.append(Box(self.name + ":sw", w, self.length, self.height))
+            result.append(Box(self.name + ':sw', w, self.length, self.height))
             self.width = box.width
 
         if self.length > box.length:
             l = self.length - box.length
-            result.append(Box(self.name + ":sl", self.width, l, self.height))
+            result.append(Box(self.name + ':sl', self.width, l, self.height))
             self.length = box.length
 
         if self.height > box.height:
             h = self.height - box.height
-            result.append(Box(self.name + ":sh", self.width, self.length, h))
+            result.append(Box(self.name + ':sh', self.width, self.length, h))
             self.height = box.height
 
         return result
