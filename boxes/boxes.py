@@ -65,7 +65,7 @@ class Box:
     # make container smaller, split if needed
     def subtract_volume(self, box):
         result = []
-        # Optimize - return empty box if the volume is the same
+        # Optimize - return empty box if the volume is the same (we already have tested that they fit)
         if self.volume == box.volume:
             return result
 
