@@ -10,7 +10,6 @@ def read_data(filename, container, boxes):
             l = l.strip()
             if l:
                 if i == 0:
-                    first = False
                     d = [i.strip() for i in l.split(',')]
                     b = Box('container', float(d[0]), float(d[1]), float(d[2]))
                     container.append(b)

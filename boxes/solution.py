@@ -22,10 +22,10 @@ class SolutionType(Enum):
 #
 def find_solution(solution_type, containers, boxes, stored_boxes, extra_boxes, free_space):
     if solution_type == SolutionType.MOST_VOLUME:
-        # sort boxes from largest to smallest, maximize the volume stored
+        # sort boxes from largest to smallest, try to maximize the volume stored
         boxes.sort(key=lambda b: b.volume, reverse=True)
     else:
-        # sort smallest to largest, maximize the number of boxes this way
+        # sort smallest to largest, try to maximize the number of boxes this way
         boxes.sort(key=lambda b: b.volume)
 
     for box in boxes:

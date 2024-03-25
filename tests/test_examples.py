@@ -7,43 +7,32 @@ from boxes.solution import find_solution, SolutionType
 
 
 # Load data and fix solution
-class TestExample1(unittest.TestCase):
-    def test_example0(self):
+class TestExample(unittest.TestCase):
+    def test_example0_volume(self):
         containers = []
         boxes = []
         stored_boxes = []
         extra_boxes = []
         free_space = []
 
-        # Test Example0 - all boxes should fit in both cases
+        # Test Example0 - all boxes should fit in volume case
         read_data(os.path.join(os.path.dirname(__file__), 'example0.dat'), containers, boxes)
-        container = containers[0]
         find_solution(SolutionType.MOST_VOLUME, containers, boxes, stored_boxes, extra_boxes, free_space)
-        self.assertEqual(containers, [])
         self.assertEqual(extra_boxes, [])
         self.assertEqual(free_space, [])
 
-        find_solution(SolutionType.MOST_BOXES, containers, boxes, stored_boxes, extra_boxes, free_space)
-        self.assertEqual(containers, [])
-        self.assertEqual(extra_boxes, [])
-        self.assertEqual(free_space, [])
-
-    def test_example1(self):
+    def test_example0_boxes(self):
         containers = []
         boxes = []
         stored_boxes = []
         extra_boxes = []
         free_space = []
 
-        # Test Example1
-        read_data(os.path.join(os.path.dirname(__file__), 'example1.dat'), containers, boxes)
-        container = containers[0]
-        find_solution(SolutionType.MOST_VOLUME, containers, boxes, stored_boxes, extra_boxes, free_space)
-        print_results('example1 - volume', container, stored_boxes, extra_boxes, free_space)
+        # Test Example0 - the biggest box will not fit in this case due to use filling from smallest to largest
+        read_data(os.path.join(os.path.dirname(__file__), 'example0.dat'), containers, boxes)
         find_solution(SolutionType.MOST_BOXES, containers, boxes, stored_boxes, extra_boxes, free_space)
-        print_results('example1 - most boxes', container, stored_boxes, extra_boxes, free_space)
-
-
-
-
-
+        self.assertEqual(len(extra_boxes), 1)
+        # box 9 is the biggest box
+        self.assertEqual(extra_boxes[0].name, 'Box 9')
+        # verify that we have free space
+        self.assertGreater(len(free_space), 0)

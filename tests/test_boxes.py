@@ -15,6 +15,7 @@ class TestBoxes(unittest.TestCase):
         box = Box('', 10, 10, 10)
         same_box = Box('', 10, 10, 10)
         self.assertEqual(box.can_contain(same_box), FitType.NORMAL)
+
     def test_box_doesnt_contain(self):
         box = Box('', 10, 10, 10)
         big_box = Box('', 11, 10, 10)
